@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>KENYA THEATRE  </title>
+</head>
+<style>
+    .h2{
+        letter-spacing: 2px;
+        margin-left: 20px;
+       color: white;
+    }
+    ul li a:hover{
+        background-color: crimson;
+        border-radius: 16px; 
+    }
+   .b{
+    background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+   } 
+        
+   
+</style>
+<body >
+    
+
+    <nav class="navbar navbar-expand-lg bg-danger p-0 m-0 fixed">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <div class="main-heading">
+                <p class="h2 display-7"> KENYA  THEATRE</p> 
+                <!-- <p class="p1">YOUR INDIPENDENT GUIDE TO THE BEST SHOWS IN KENYA</p> -->
+              </div>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Musicals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Stand-up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Concerts</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Football games</a></li>
+                  <li><a class="dropdown-item" href="#">Movies</a></li>
+                  <li><a class="dropdown-item" href="#">Podcasts</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="date">
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                SELECT A DATE
+              </button>
+              <ul class="dropdown-menu">
+                <input type="date">
+            
+              </ul>
+            </div>
+
+        </div>
+        </div>
+       
+      </nav>
+      <div class="text-center">
+        <h1 class="text-danger display-5">Upcoming Events</h1>
+       <p class="lead text-muted">The following events will occour as from this weekend see you soon...</p>
+  </div>
+  <!-- dynamic data -->
+     
+                <%  if(result.length>0){ %>
+                  <%  result.forEach(resu=>{ %>
+                    <div class="row my-3 align-items-center justify-content-center g-3 ms-2">
+                      <div class="col-8 col-lg-4 col-xl-3">
+                          <div class="card">
+                              <div class="card-body text-center py-3 ">
+                  <h4 class="card-tittle display-9 fw-bold text-success" ><%- resu.type %></h4>
+                   <p class="lead subtittle display-9 fw-bold text-success"><%- resu.title %></p>
+                   <p class="lead subtittle display-9">Location:<%- resu.venue %></p>
+                   <p class=" fw-bold text-danger"><%- resu.date %></p>
+                   <p class="display-9 fw-bold text-success">Ksh=/<%- resu.price %></p>
+                   <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          More Info
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body"><%- resu.descrip %></div>
+                      </div>
+                    </div>
+                  <a href="#" class="btn btn-outline-success btn-lg mt-3">Get your ticket</a>
+                </div>
+                
+              </div>
+          </div>
+          </div>
+                  <% }) %> 
+
+             
+                  <% } else{ %>
+                 <p>Events that will be coming soon...</p>
+                 <section id="events" class="bg-light" class="b">
+    
+                  <div class="row my-3 align-items-center justify-content-center g-3 ms-2">
+                      <div class="col-8 col-lg-6 col-xl-3">
+                          <div class="card">
+                            
+                              <div class="card-body text-center py-3 ">
+                                  <h4 class="card-tittle">Stand up Commedy</h4>
+                                   <p class="lead subtittle">Churchill Show at Carnivore</p>
+                                   <p class="display-5 fw-bold text-danger">28/5/2023</p>
+                                   <p class="display-5 fw-bold text-success">$25</p>
+                                  <a href="#" class="btn btn-outline-success btn-lg mt-3">Get your ticket</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-9 col-lg-6">
+                          <div class="card">
+                              <div class="card-body text-center py-3">
+                                  <h4 class="card-tittle">Sauti sol Concert</h4>
+                                  <p class="lead subtittle">Carnivore Hotel</p>
+                                  <p class="display-5 fw-bold text-danger">2/6/2023</p>
+                                   <p class="display-5 fw-bold text-success">$30</p>
+                                  <a href="#" class="btn btn-outline-success btn-lg mt-3">Get your ticket</a>
+                                  <i class="bi bi-bag-dash-fill"></i>
+                              </div>
+                          </div>
+                      </div>   
+                      <div class="row my-5 align-items-center justify-content-center g-3 ms-2">
+                        <div class="col-8 col-lg-6 col-xl-3">
+                            <div class="card ">
+                              
+                                <div class="card-body text-center py-3 ">
+                                  
+                                    <h4 class="card-tittle">Click Click Bang Screening</h4>
+                                     <p class="lead subtittle">Nirobi Cinema</p>
+                                     <p class="display-5 fw-bold text-danger">28/5/2023</p>
+                                     <p class="display-5 fw-bold text-success">$40</p>
+                                    <a href="#" class="btn btn-outline-success btn-lg mt-3">Get your ticket</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9 col-lg-6">
+                            <div class="card ">
+                                <div class="card-body text-center py-3">
+                                    <h4 class="card-tittle">The Ted Podcast</h4>
+                                    <p class="lead subtittle">Nairobi Cinema</p>
+                                    <p class="display-5 fw-bold text-danger">12/6/2023</p>
+                                     <p class="display-5 fw-bold text-success">$30</p>
+                                    <a href="#" class="btn btn-outline-success btn-lg mt-3">Get your ticket</a>
+                                </div>
+                            </div>
+                        </div>       
+                  </div>
+                 
+              
+               </section>
+                  <% } %>
+              </div>
+          </div>
+      </div>
+  <!-- dynamic data  -->
+  
+    
+<footer class="text-success text-center">
+    Copyright &copy Kenys theatres@org 2023
+</footer>
+     
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>
